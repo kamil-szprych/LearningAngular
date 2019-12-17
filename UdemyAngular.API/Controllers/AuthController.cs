@@ -27,7 +27,7 @@ namespace UdemyAngular.API.Controllers
             _configuration = configuration;
         }
         
-        [HttpPost("Register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
