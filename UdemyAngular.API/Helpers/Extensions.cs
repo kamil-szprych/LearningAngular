@@ -14,5 +14,14 @@ namespace UdemyAngular.API.Helpers
             response.Headers.Add("Access-Control-Expose-Headers", "Application-Error");
             response.Headers.Add("Access-Control-Allow-origin", "*");
         }
+
+        public static int CalculateAge(this DateTime date)
+        {
+            var age = DateTime.Today.Year - date.Year;
+            if (date.AddYears(age) > DateTime.Today)
+                age--;
+
+            return age;
+        }
     }
 }
