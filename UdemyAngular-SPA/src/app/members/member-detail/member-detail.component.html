@@ -40,15 +40,16 @@
         <tabset class="member-tabset">
           <tab heading="About {{user.knownAs}}">
             <h4>Description</h4>
-            <p>{{user.introduction}}</p>
+            <p [ngClass]="user.introduction ? '' : 'text-muted'">{{user.introduction || 'This user did not set description yet.'}}</p>
             <h4>Looking for</h4>
-            <p>{{user.lookingFor}}</p>
+            <p [ngClass]="user.introduction ? '' : 'text-muted'">{{user.lookingFor || 'Not defined.'}}</p>
           </tab>
           <tab heading="Interests">
             <h4>Interests</h4>
-            <p>{{user.interests}}</p>
+            <p [ngClass]="user.introduction ? '' : 'text-muted'">{{user.interests || 'This user did not set interests.'}}</p>
           </tab>
           <tab heading="Photos">
+            <p class="text-muted" *ngIf="galleryImages.length === 0">This user did not add any photos yet.</p>
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
           </tab>
           <tab heading="Messages">
