@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UdemyAngular.API.Data;
 using UdemyAngular.API.Dtos;
+using UdemyAngular.API.Helpers;
 
 namespace UdemyAngular.API.Controllers
-{ 
+{
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
