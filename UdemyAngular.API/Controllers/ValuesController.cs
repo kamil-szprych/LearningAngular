@@ -25,9 +25,15 @@ namespace DatingApp.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var values = await _context.Values.ToListAsync();
+            //var values = await _context.Values.ToListAsync();
 
-            return Ok(values);
+            //return Ok(values);
+
+            string fileName = "przeczytaj.txt";
+            string filePath = "~\\testFiles\\" + fileName;
+
+
+            return File(filePath, "	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "text.xlsx");
         }
 
 
